@@ -6,7 +6,7 @@ import Head from "next/head";
 import React from "react";
 import { AppBar } from "../appBar/appBar";
 import { Drawer } from "../drawer/drawer";
-import { mainListItems } from "../navigation/Navigation";
+import { mainListItems } from "../navigation/navigation";
 
 const mdTheme = createTheme();
 
@@ -24,6 +24,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     <>
       <Head>
         <title>Dashboard title</title>
+        <meta charset="utf-8" />
       </Head>
       <ThemeProvider theme={mdTheme}>
         <Box sx={{ display: 'flex' }}>
@@ -78,18 +79,19 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                   ? theme.palette.grey[100]
                   : theme.palette.grey[900],
               flexGrow: 1,
+              display: 'flex',
+              flexDirection: 'column',
               height: '100vh',
               overflow: 'auto',
             }}
           >
             <Toolbar />
-            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-              <Grid container spacing={3}>
-                {/* Chart */}
-                <Grid item xs={12} md={8} lg={9}>
-                  {children}
-                </Grid>
-              </Grid>
+            <Container maxWidth="lg" style={{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              {children}
             </Container>
           </Box>
         </Box>

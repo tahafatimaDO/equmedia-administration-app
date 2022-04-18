@@ -9,7 +9,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
       </Head>
-      <body>
+      <body style={{ backgroundColor: 'rgb(247, 249, 252)' }}>
         <Main />
         <NextScript />
       </body>

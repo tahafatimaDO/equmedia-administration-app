@@ -1,19 +1,38 @@
+import { DataGrid, GridToolbar } from '@mui/x-data-grid'
+import axios from 'axios'
 import type { NextPage } from 'next'
-import Link from 'next/link'
-import { ReactElement } from 'react'
+import { ReactElement, useState } from 'react'
+import useSWR from 'swr'
+import columns from '../../components/dataGrid/users/users'
 import DashboardLayout from '../../components/layouts/dashboardLayout'
+import Panel from '../../components/panel/panel'
+import { Paths } from '../../constant'
 
 const Users: NextPage = () => {
+  const [pageSize, setPageSize] = useState<number>(5);
+  const fetcher = (url: string) => axios.get(url).then(res => res);
+  const { data } = useSWR(Paths.getUsers, fetcher);
+  
   return (
-    <div>
-      <h1>Secured page</h1>
-      <Link href="#">admin</Link>
-      <Link href="#">profile</Link>
-    </div>
+    <>
+      <h1>Users</h1>
+      <Panel style={{ flex: 1 }}>
+        {data ? (
+          <DataGrid 
+            columns={columns}
+            rows={data.data} 
+            pageSize={pageSize}
+            rowsPerPageOptions={[5, 10, 20]}
+            onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+            checkboxSelection
+            disableSelectionOnClick
+            components={{ Toolbar: GridToolbar }}
+          />
+        ) : 'loading'}
+      </Panel>
+    </>
   )
 }
-
-// https://thewidlarzgroup.com/nextjs-auth/
 
 Users.getLayout = function getLayout(page: ReactElement) {
   return (
