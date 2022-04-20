@@ -20,7 +20,7 @@ export const fetchUsers = createAsyncThunk('auth/users', async (_, thunkAPI) => 
 
 export interface UserSliceState {
   loading: UserStates
-  users: []
+  users: any[]
   error?: SerializedError
 }
 

@@ -24,7 +24,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
     <>
       <Head>
         <title>Dashboard title</title>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
       </Head>
       <ThemeProvider theme={mdTheme}>
         <Box sx={{ display: 'flex' }}>
