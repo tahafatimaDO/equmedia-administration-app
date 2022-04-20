@@ -1,13 +1,9 @@
-import { Box, Paper } from '@mui/material'
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid'
-import axios from 'axios'
-import type { NextPage } from 'next'
 import { ReactElement } from 'react'
 import RegisterForm from '../../components/forms/registerForm'
 import DashboardLayout from '../../components/layouts/dashboardLayout'
 import Panel from '../../components/panel/panel'
 
-const CreateUser: NextPage = () => {
+const CreateUser = () => {
   return (
     <>
       <h1>Create user</h1>

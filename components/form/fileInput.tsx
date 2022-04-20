@@ -1,9 +1,10 @@
 import { Box, Button } from "@mui/material";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const FileInput = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   useEffect(() => {
     if (selectedImage) {
@@ -18,7 +19,7 @@ const FileInput = () => {
         type="file"
         id="select-image"
         style={{ display: 'none' }}
-        onChange={e => setSelectedImage(e.target.files[0])}
+        onChange={e => setSelectedImage(e.target.files![0])}
       />
       <label htmlFor="select-image">
         <Button variant="contained" color="primary" component="span">
@@ -28,7 +29,7 @@ const FileInput = () => {
       {imageUrl && selectedImage && (
         <Box sx={{ mt: 2 }} textAlign="center">
           <div>Image Preview:</div>
-          <img src={imageUrl} alt={selectedImage.name} height="100px" />
+          <Image src={imageUrl} alt={selectedImage.name} height="100px" />
         </Box>
       )}
     </>

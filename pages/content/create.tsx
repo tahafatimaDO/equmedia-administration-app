@@ -1,10 +1,8 @@
-import { NextPage } from "next"
 import { ReactElement } from "react"
 import ContentForm from "../../components/forms/contentForm"
 import DashboardLayout from "../../components/layouts/dashboardLayout"
-import Panel from "../../components/panel/panel"
 
-const CreateContent: NextPage = () => {
+const CreateContent = () => {
   return (
     <>
       <h1>Create post</h1>

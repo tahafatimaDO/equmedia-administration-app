@@ -1,8 +1,7 @@
 import { Box, Button, Tab, Tabs } from "@mui/material";
 import AddIcon from '@material-ui/icons/Add';
-import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
-import { NextPage } from "next";
 import { ReactElement, useState } from "react";
 import useSWR from "swr";
 import columns from "../../components/dataGrid/content/content";
@@ -12,7 +11,7 @@ import TabPanel, { a11yTabsProps } from "../../components/tabs/tabPanel";
 import { Paths } from "../../constant";
 import Link from "next/link";
 
-const Content: NextPage = () => {
+const Content = () => {
   const [pageSize, setPageSize] = useState<number>(5);
   const [tab, setTab] = useState(0);
   const fetcher = (url: string) => axios.get(url).then(res => res);

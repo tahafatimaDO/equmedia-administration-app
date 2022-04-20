@@ -23,10 +23,6 @@ export const AuthGuard: React.FC<Props> = ({ children, role, customText }) => {
     return <>{children}</>
   }
 
-  if (role === 'admin' && me?.role === 'ADMIN') {
-    return <>{children}</>
-  }
-
   return (
     <section>
       <h2 className="text-center">Unauthorized</h2>

@@ -1,9 +1,8 @@
 import type { NextPage } from 'next'
-import Link from 'next/link'
 import { ReactElement } from 'react'
 import DashboardLayout from '../components/layouts/dashboardLayout'
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <div>
       <h1>Admin panel</h1>
